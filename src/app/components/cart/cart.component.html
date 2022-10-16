@@ -1,0 +1,83 @@
+
+
+
+
+<div class="empty-cart-message"  *ngIf="!cartItems.length">
+
+    <h1>Your Cart is Empty</h1>
+ 
+    <a routerLink="/">Go Back To Shopping </a>
+    
+</div>
+
+
+<div class="cart-container" *ngIf="cartItems.length">
+
+
+
+
+    <div class="cart-panel">
+
+        <div *ngFor="let item of cartItems" class="cart-item">
+            <div *ngIf="item">
+                <img src={{item.image}} alt="">
+            </div>
+            <div class="cart-item-details" *ngIf="item">
+
+          
+                
+                <div>
+                    <h4>{{item.title}}</h4>
+                    <h4>{{item.price}}</h4>
+                    <label>Amount: </label>
+                    <input class="number-input" (change)="getTotalPrice()"[(ngModel)]="item.quantity" value={{item.quantity}} type="number"  min="1" >
+
+
+                </div>
+
+
+
+
+
+            </div>
+            
+
+
+        </div>
+
+        <h1 >Total:${{totalPrice}}</h1>
+    </div>
+
+
+
+
+
+
+    <form  #form="ngForm" class="form-margin"  >
+        <h2>Full Name *</h2>
+        <input type="text" required min="3" #username="ngModel" [(ngModel)]="user.name" name="username" placeholder="(min 3 charachters)">
+        <div style="color:red ;" *ngIf="username.invalid && username.dirty"> min of 3 characters username must be provided</div>
+
+
+
+        <h2>Address *</h2>
+        <input type="text" #address="ngModel" required min="6"  [(ngModel)]="user.address" name="address" placeholder="(min 6 charachters)">
+        <div style="color:red ;" *ngIf="address.invalid && address.dirty"> min of 6 characters address must be provided</div>
+        <h2>Credit card number *</h2>
+
+        <input type="text" required minlength="16" maxlength="16" #creditCard="ngModel" [(ngModel)]="user.creditCardNumber" name="credit-card" placeholder="(16-digit number)">
+        <div style="color:red ;" *ngIf="creditCard.invalid && creditCard.dirty"> 16 digit credit card number must be provided</div>
+
+
+
+        <h5>we will never share your payment details with anyone</h5>
+         
+        <input (click)="submitOrder()" type="button" [disabled]="form.invalid"  value="Submit" class="btn btn-primary">
+    
+
+
+    </form>
+
+
+
+</div>

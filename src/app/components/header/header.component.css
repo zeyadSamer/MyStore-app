@@ -1,0 +1,28 @@
+header{
+
+    background: #33B5E5;
+    padding:12px;
+    text-align:center;
+
+    color:#FFF;
+    padding:12px;
+    
+
+
+}
+
+a{
+    color:#FFFFFF;
+    text-decoration:none;
+
+}
+
+span{
+
+    
+    font-size:8px;
+    position:relative;
+    top:-5px
+
+    
+}
