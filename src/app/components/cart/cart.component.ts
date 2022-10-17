@@ -62,6 +62,16 @@ export class CartComponent implements OnInit {
   }
 
 
+  removeProductFromCart(id:any){
+    this.cartService.remove(id);
+
+    //to get again the cart items after removal of an item
+    this.getCartItems();
+    this.getTotalPrice();
+
+
+  }
+  
 
 
 

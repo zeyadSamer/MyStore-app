@@ -70,7 +70,7 @@ export class CartService {
 
   getCartSize(){
 
-    let total=0;
+    let total:number=0;
     for(let item of this.cartItems){
 
       total+=item.quantity;
@@ -89,6 +89,13 @@ export class CartService {
 
 
 
+
+  }
+
+
+  remove(id:number){
+
+    this.cartItems=this.cartItems.filter(item=>item.id!==id)
 
   }
 

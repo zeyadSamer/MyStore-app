@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,Output, EventEmitter } from '@angular/core';
 import Product from '../../Models/Product';
 
 import { Router } from '@angular/router';
@@ -24,6 +24,8 @@ export class ProductItemComponent implements OnInit {
   category:'',
   quantity:0
 };
+
+@Output() removeProduct =new EventEmitter();
 
 public productQuantity:number=1;
 
@@ -57,6 +59,17 @@ public productQuantity:number=1;
 
 
   }
+
+  removeProductFromCart(id:number){
+    this.cartService.remove(id);
+
+  }
+
+
+
+
+
+
 
 
   
