@@ -4,7 +4,6 @@ import Product from '../../Models/Product';
 import { Router } from '@angular/router';
 import { ProductDetailsComponent } from '../product-details/product-details.component';
 import { ProductsService } from 'src/app/services/products.service';
-import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product-item',
@@ -31,7 +30,7 @@ export class ProductItemComponent implements OnInit {
 public productQuantity:number=1;
 
   
-  constructor(private router:Router,private cartService:CartService,private productsService:ProductsService) { }
+  constructor(private router:Router,private productsService:ProductsService) { }
 
   ngOnInit(): void {
   }
