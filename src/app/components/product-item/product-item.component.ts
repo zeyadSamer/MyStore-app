@@ -25,7 +25,8 @@ export class ProductItemComponent implements OnInit {
   quantity:0
 };
 
-@Output() removeProduct =new EventEmitter();
+@Output() removeProduct =new EventEmitter<number>();
+@Output() addProduct=new  EventEmitter<Product>();
 
 public productQuantity:number=1;
 
@@ -52,16 +53,19 @@ public productQuantity:number=1;
     //product quantity is assigned to string from the ng model
     this.product.quantity=parseInt(this.productQuantity as unknown as string) ;
 
-    
-    this.cartService.addItem(this.product);
-    alert(`${this.product.title} is added to cart`)
+    this.addProduct.emit(this.product);
+    // this.cartService.addItem(this.product);
+     alert(`${this.product.title} is added to cart`)
 
 
 
   }
 
   removeProductFromCart(id:number){
-    this.cartService.remove(id);
+    // this.cartService.remove(id);
+
+
+    this.removeProduct.emit(id);
 
   }
 

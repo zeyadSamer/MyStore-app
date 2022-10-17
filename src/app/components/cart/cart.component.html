@@ -72,7 +72,7 @@
         <h2>Credit card number *</h2>
 
         <input pattern="[0-9]*" type="text" required minlength="16" maxlength="16" #creditCard="ngModel" [(ngModel)]="user.creditCardNumber" name="credit-card" placeholder="(16-digit number)">
-        <div style="color:red ;" *ngIf="creditCard.errors?.['pattern'] && creditCard.invalid && creditCard.dirty"> 16 digit credit card number must be provided</div>
+        <div style="color:red ;" *ngIf="!creditCard.errors?.['pattern'] && creditCard.invalid && creditCard.dirty"> 16 digit credit card number must be provided</div>
    
         <div style="color:red ;" *ngIf="creditCard.errors?.['pattern']"> Only numbers should be provided</div>
    
