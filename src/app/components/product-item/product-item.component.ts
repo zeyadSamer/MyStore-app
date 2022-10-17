@@ -61,11 +61,11 @@ public productQuantity:number=1;
   }
 
   removeProductFromCart(id:number){
-    // this.cartService.remove(id);
+    // this.cartService.remove(id); 
 
 
     this.removeProduct.emit(id);
-
+   
   }
 
 
